@@ -13,4 +13,4 @@ TECHNOLOGY STACK:
 Frontend: WordPress-based site with a responsive design for both desktop and mobile.
 Backend: PHP (via WordPress), MySQL for database management.
 
-for domentation and user manual : https://drive.google.com/drive/folders/11BCiSY2VheCVl9QujQzo9pg00SoCtRpu?usp=sharing
+for documentation and user manual : https://drive.google.com/drive/folders/11BCiSY2VheCVl9QujQzo9pg00SoCtRpu?usp=sharing
