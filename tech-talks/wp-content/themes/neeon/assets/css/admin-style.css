@@ -1,0 +1,54 @@
+.vc_edit_form_elements .textarea_raw_html {
+	height: 60px;
+}
+.term-meta-color-block {
+	width: 30px;
+	height: 30px;
+	display: block;
+}
+.rt_category_image img {
+	width: 50px;
+	height: 40px;
+	object-fit: cover;
+}
+.category-image .category-image img {
+	width: 120px;
+}
+.category-image .category-image-wrap {
+	position: relative;
+	display: inline-block;
+	border: 1px solid #e5e5e5;
+	margin-bottom: 15px;
+}
+.category-image .category-image-wrap button {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+div.icon-wrapper > span {
+	margin-right: 10px;
+}
+.select2-results__option[aria-selected] {
+	margin-bottom: 0;
+}
+[class^="flaticon-"]:before, 
+[class*=" flaticon-"]:before, 
+[class^="flaticon-"]:after, 
+[class*=" flaticon-"]:after {
+	font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.radio-button-label {
+	display: inline-flex;
+	margin-bottom: 15px;
+}
+.radio-button-label:last-child {
+	margin-bottom: 0;
+}

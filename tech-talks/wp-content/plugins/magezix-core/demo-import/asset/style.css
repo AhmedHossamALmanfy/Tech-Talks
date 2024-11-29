@@ -1,0 +1,32 @@
+#wpwrap.open #wpbody,.ocdi.ocdi--install-plugins{
+    opacity: .2;
+    pointer-events: none;
+}
+
+#wpwrap.open .tx-notice{
+    display: block;
+}
+
+.tx-notice{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    z-index: 3;
+    padding: 50px;
+    display: none;
+}
+.tx-close{
+    position: absolute;
+    top: 15px;
+    right: 18px;
+    display: inline-flex;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #666;
+    border-radius: 50px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}

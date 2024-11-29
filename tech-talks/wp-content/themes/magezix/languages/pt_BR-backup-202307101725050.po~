@@ -1,0 +1,345 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Magezix\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-07-06 06:35+0000\n"
+"PO-Revision-Date: 2023-07-10 16:37+0000\n"
+"Last-Translator: \n"
+"Language-Team: Português do Brasil\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.4; wp-6.2.2\n"
+"X-Domain: magezix\n"
+"Language: pt_BR"
+
+#: inc/template-functions.php:142 inc/template-functions.php:144
+msgid " min read"
+msgstr " Leitura"
+
+#: inc/template-functions.php:52
+msgid "#"
+msgstr ""
+
+#: inc/magezix-functions.php:334 template-parts/content-search.php:28
+msgid "# Tags"
+msgstr ""
+
+#. 1: title.
+#: comments.php:36
+msgid "1 Comment"
+msgstr ""
+
+#: inc/magezix-functions.php:619
+msgid "404"
+msgstr ""
+
+#: inc/template-functions.php:302
+msgid "404 - Not Found"
+msgstr ""
+
+#: inc/class-wp-magezix-navwalker.php:358
+msgid "Add a menu"
+msgstr ""
+
+#: functions.php:163 functions.php:172 functions.php:183 functions.php:194
+msgid "Add Footer widgets here."
+msgstr ""
+
+#: functions.php:150
+msgid "Add widgets here."
+msgstr ""
+
+#: inc/template-functions.php:287 inc/template-functions.php:290
+#: inc/template-functions.php:293 inc/template-functions.php:296
+msgid "Archive for "
+msgstr ""
+
+#: inc/magezix-functions.php:461
+msgid "Blog"
+msgstr ""
+
+#: lib/plugin-activation.php:55
+msgid "Breadcrumb NavXT"
+msgstr ""
+
+#: inc/magezix-functions.php:219
+msgid "Browse Category"
+msgstr ""
+
+#: functions.php:65
+msgid "Category Menu"
+msgstr ""
+
+#: inc/template-functions.php:173
+msgid "Comment"
+msgstr ""
+
+#: comments.php:70
+msgid "Comments are closed."
+msgstr ""
+
+#. 1: comment count number, 2: title.
+#: comments.php:42
+#, php-format
+msgctxt "comments title"
+msgid "%1$s Comment"
+msgid_plural "%1$s Comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#. %s: Name of current post. Only visible to screen readers
+#: functions.php:435 template-parts/single/single-one.php:93
+#: template-parts/single/single-three.php:73
+#: template-parts/single/single-two.php:83
+#, php-format
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr ""
+
+#. %s: Name of current post. Only visible to screen readers
+#: inc/template-tags.php:111 template-parts/content-page.php:39
+#, php-format
+msgid "Edit <span class=\"screen-reader-text\">%s</span>"
+msgstr ""
+
+#: inc/template-functions.php:189
+msgid "Email"
+msgstr ""
+
+#: inc/magezix-functions.php:103
+msgid "English"
+msgstr ""
+
+#: lib/plugin-activation.php:44
+msgid "Fluent Forms"
+msgstr ""
+
+#: functions.php:192
+msgid "Footer Four"
+msgstr ""
+
+#: inc/cs-framework-functions.php:226 inc/cs-framework-functions.php:242
+#: inc/cs-framework-functions.php:258
+msgid "Footer logo"
+msgstr ""
+
+#: functions.php:161
+msgid "Footer One"
+msgstr ""
+
+#: functions.php:181
+msgid "Footer Three"
+msgstr ""
+
+#: functions.php:170
+msgid "Footer Two"
+msgstr ""
+
+#: inc/magezix-functions.php:647
+msgid "Go Back Home"
+msgstr ""
+
+#: inc/magezix-functions.php:460 inc/template-functions.php:247
+msgid "Home"
+msgstr ""
+
+#. Author URI of the theme
+msgid "https://themeforest.net/user/themexriver"
+msgstr ""
+
+#. URI of the theme
+msgid "https://themexriver.com/wp/magezix"
+msgstr ""
+
+#: lib/ocdi/functions.php:18
+msgid ""
+"Import process may take 3-10 minutes. If you facing any issues please "
+"contact our support.After Import Succesfuly go to Appearance->Menu And Set "
+"your Menu"
+msgstr ""
+
+#: template-parts/content-none.php:44
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: functions.php:221
+msgctxt "Jost: on or off"
+msgid "on"
+msgstr ""
+
+#: inc/template-functions.php:172
+msgid "Leave a comment"
+msgstr ""
+
+#. %s: post title
+#: inc/template-tags.php:94
+#, php-format
+msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr ""
+
+#: inc/cs-framework-functions.php:273 inc/cs-framework-functions.php:288
+#: inc/cs-framework-functions.php:304 inc/cs-framework-functions.php:320
+msgid "Light logo"
+msgstr ""
+
+#: inc/cs-framework-functions.php:125 inc/cs-framework-functions.php:153
+#: inc/cs-framework-functions.php:181 inc/cs-framework-functions.php:209
+msgid "Logo"
+msgstr ""
+
+#: inc/cs-framework-functions.php:271 inc/cs-framework-functions.php:286
+msgid "logo"
+msgstr ""
+
+#. Name of the theme
+msgid "Magezix"
+msgstr ""
+
+#. Description of the theme
+msgid "Magezix - is an Responsive News, Blog &amp; Magazine WordPress Theme."
+msgstr ""
+
+#: lib/plugin-activation.php:11
+msgid "Magezix Core"
+msgstr ""
+
+#. Name of the template
+msgid "Magezix Elementor Full Template"
+msgstr ""
+
+#: lib/plugin-activation.php:39
+msgid "MC4WP: Mailchimp for WordPress"
+msgstr ""
+
+#: inc/template-functions.php:187
+msgid "Name"
+msgstr ""
+
+#: template-parts/content-none.php:14
+msgid "Nothing Found"
+msgstr ""
+
+#: lib/plugin-activation.php:50
+msgid "One Click Demo Import"
+msgstr ""
+
+#: inc/magezix-functions.php:637
+msgid ""
+"Oops! The page you are looking for does not exist. It might have been moved "
+"or deleted."
+msgstr ""
+
+#: inc/magezix-functions.php:628
+msgid "Oops... It looks like you ‘re lost !"
+msgstr ""
+
+#: functions.php:448 template-parts/content-page.php:25
+#: template-parts/single/single-one.php:106
+#: template-parts/single/single-three.php:86
+#: template-parts/single/single-two.php:96
+msgid "Pages:"
+msgstr ""
+
+#. %s: post author.
+#: inc/template-tags.php:46
+#, php-format
+msgctxt "post author"
+msgid "by %s"
+msgstr ""
+
+#. %s: post date.
+#: inc/template-tags.php:30
+#, php-format
+msgctxt "post date"
+msgid "Posted on %s"
+msgstr ""
+
+#: functions.php:64
+msgid "Primary"
+msgstr ""
+
+#. 1: link to WP admin new post page.
+#: template-parts/content-none.php:24
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: functions.php:217
+msgctxt "Roboto: on or off"
+msgid "on"
+msgstr ""
+
+#: inc/magezix-functions.php:320
+msgid "Search For News"
+msgstr ""
+
+#: inc/magezix-functions.php:132
+msgid "Search Here"
+msgstr ""
+
+#: inc/magezix-functions.php:487
+msgid "Search Keywords"
+msgstr ""
+
+#: inc/template-functions.php:299
+msgid "Search Results for "
+msgstr ""
+
+#: inc/template-functions.php:314
+msgid "Search results for &ldquo;"
+msgstr ""
+
+#: inc/template-functions.php:415
+msgid "Search.."
+msgstr ""
+
+#: functions.php:148
+msgid "Sidebar"
+msgstr ""
+
+#: template-parts/content-none.php:37
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: lib/plugin-activation.php:33
+msgid "SVG Support"
+msgstr ""
+
+#. used between list items, there is a space after the comma
+#: inc/template-tags.php:82
+msgid "Tags:"
+msgstr "Tageeeeeeeeeee: "
+
+#. Author of the theme
+msgid "themexriver"
+msgstr ""
+
+#: inc/template-functions.php:191
+msgid "Website"
+msgstr ""
+
+#: lib/plugin-activation.php:19
+msgid "Xriver Core"
+msgstr ""
+
+#: functions.php:225
+msgctxt "Yeseva One: on or off"
+msgid "on"
+msgstr ""
+
+#: inc/template-functions.php:228
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: template-parts/footer/footer-one.php:60
+#: template-parts/footer/footer-three.php:60
+#: template-parts/footer/footer-two.php:60
+msgid "© 2022 Magezix . All Rights Reserved"
+msgstr ""

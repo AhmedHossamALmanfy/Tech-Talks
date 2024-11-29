@@ -1,0 +1,377 @@
+<?php
+
+/**
+ * Elementor Single Widget
+ * @package Papurfy Extension
+ * @since 1.0.0
+ */
+
+namespace Elementor;
+
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
+
+class magezix_sponsor_post extends Widget_Base {
+
+	/**
+	 * Get widget name.
+	 *
+	 * Retrieve Elementor widget name.
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 *
+	 * @return string Widget name.
+	 */
+	public function get_name() {
+		return 'mgz-sponsor-post-';
+	}
+
+	/**
+	 * Get widget title.
+	 *
+	 * Retrieve Elementor widget title.
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 *
+	 * @return string Widget title.
+	 */
+	public function get_title() {
+		return esc_html__( 'Sponsor Post', 'magezix-core' );
+	}
+
+	/**
+	 * Get widget icon.
+	 *
+	 * Retrieve Elementor widget icon.
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 *
+	 * @return string Widget icon.
+	 */
+	public function get_icon() {
+		return 'mg-custom-icon';
+	}
+
+	/**
+	 * Get widget categories.
+	 *
+	 * Retrieve the list of categories the Elementor widget belongs to.
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 *
+	 * @return array Widget categories.
+	 */
+	public function get_categories() {
+		return [ 'magezix_widgets' ];
+	}
+
+	
+	protected function register_controls() {
+
+		$this->start_controls_section(
+			'post_options',
+			[
+				'label' => esc_html__( 'Post Options', 'magezix-core' ),
+				'tab'   => Controls_Manager::TAB_CONTENT,
+			]
+		);
+        $this->add_control(
+			'topic_heading', [
+				'label'       => esc_html__( 'Section Title', 'magezix-core' ),
+				'type'        => \Elementor\Controls_Manager::TEXT,
+				'default'     => esc_html__( 'Trending Topics', 'magezix-core' ),
+				'label_block' => true,
+			]
+		);
+        
+		$this->add_control(
+			'postcustomorder',
+			[
+				'label'        => esc_html__( 'Custom Order', 'magezix-core' ),
+				'type'         =>Controls_Manager::SWITCHER,
+				'return_value' => 'yes',
+				'default'      => 'no',
+			]
+		);
+		$this->add_control(
+			'postorder',
+			[
+				'label'     => esc_html__( 'Post Order', 'magezix-core' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'ASC',
+				'options'   => [
+					'ASC'  => esc_html__( 'Ascending', 'magezix-core' ),
+					'DESC' => esc_html__( 'Descending', 'magezix-core' ),
+				],
+			]
+		);
+		$this->add_control(
+			'postorderby',
+			[
+				'label'     => esc_html__( 'Post Order By', 'magezix-core' ),
+				'type'      => Controls_Manager::SELECT,
+				'default'   => 'none',
+				'options'   => [
+					'none'          => esc_html__( 'None', 'magezix-core' ),
+					'ID'            => esc_html__( 'ID', 'magezix-core' ),
+					'date'          => esc_html__( 'Date', 'magezix-core' ),
+					'name'          => esc_html__( 'Name', 'magezix-core' ),
+					'title'         => esc_html__( 'Title', 'magezix-core' ),
+					'comment_count' => esc_html__( 'Comment count', 'magezix-core' ),
+					'rand'          => esc_html__( 'Random', 'magezix-core' ),
+				],
+				'condition' => ['postcustomorder' => 'yes'],
+			]
+		);
+		$this->add_control(
+			'pst_per_page',
+			[
+				'label'   => __( 'Posts Per Page', 'magezix-core' ),
+				'type'    => Controls_Manager::NUMBER,
+				'min'     => 1,
+				'default' => 5,
+			]
+		);
+		$this->add_control(
+			'skip_post',
+			[
+				'label'          => esc_html__( 'Skip Post Enable?', 'magezix-core' ),
+				'type'           => Controls_Manager::SWITCHER,
+				'label_on'       => esc_html__( 'Show', 'magezix-core' ),
+				'label_off'      => esc_html__( 'Hide', 'magezix-core' ),
+				'return_value'   => 'yes',
+				'default'        => 'yes',
+				'style_transfer' => true,
+			]
+		);
+		$this->add_control(
+			'skip_post_count',
+			[
+				'label'   => __( 'Skip Post Count', 'magezix-core' ),
+				'type'    => Controls_Manager::NUMBER,
+				'default' => 0,
+				'condition' => ['skip_post' => 'yes'],
+			]
+		);
+		$this->add_control(
+			'post_categories',
+			[
+				'type'        => Controls_Manager::SELECT2,
+				'label'       => esc_html__( 'Select Categories', 'magezix-core' ),
+				'options'     => magezix_post_category(),
+				'label_block' => true,
+				'multiple'    => true,
+			]
+		);
+
+		$this->add_control(
+			'post_tags',
+			[
+				'type'        => Controls_Manager::SELECT2,
+				'label'       => esc_html__( 'Select Tags', 'magezix-core' ),
+				'multiple'    => true,
+                  'options'     => array_flip(magezix_item_tag_lists( 'tags', array(
+                    'sort_order'  => 'ASC',
+                    'taxonomies'    => 'post_tag',
+                    'hide_empty'  => false,
+                ) )),
+			]
+		);
+        $this->add_control(
+			'post_format', [
+			   
+				'label'   => esc_html__('Select Post Format', 'magezix-core'),
+				'type'    => Controls_Manager::SELECT2,
+				'options' => [
+					
+					'post-format-video' => esc_html__( 'Video', 'magezix-core' ),
+					'post-format-image' => esc_html__( 'Image', 'magezix-core' ),
+					'post-format-audio' => esc_html__( 'Audio', 'magezix-core' ),
+					'post-format-gallery' => esc_html__( 'Gallery', 'magezix-core' ),
+					'post-format-standard' => esc_html__( 'Standard', 'magezix-core' ),
+				],
+				'default'     => [],
+				'label_block' => true,
+				'multiple'    => true,
+			]
+		);
+
+		$this->add_control(
+			'title_length',
+			[
+				'label'     => __( 'Title Length', 'magezix-core' ),
+				'type'      => Controls_Manager::NUMBER,
+				'step'      => 1,
+				'default'   => 20,
+			]
+		);
+		$this->add_control(
+			'title_ov_length',
+			[
+				'label'     => __( 'Overlay Post Title Length', 'magezix-core' ),
+				'type'      => Controls_Manager::NUMBER,
+				'step'      => 1,
+				'default'   => 20,
+			]
+		);
+		$this->add_control(
+			'authore_hide',
+			[
+				'label'          => esc_html__( 'Authore Hide', 'magezix-core' ),
+				'type'           => Controls_Manager::SWITCHER,
+				'label_on'       => esc_html__( 'Show', 'magezix-core' ),
+				'label_off'      => esc_html__( 'Hide', 'magezix-core' ),
+				'return_value'   => 'yes',
+				'default'        => 'yes',
+				'style_transfer' => true,
+			]
+		);
+        $this->add_control(
+			'avater_size',
+			[
+				'label'   => __( 'Authore Avater Size', 'magezix-core' ),
+				'type'    => Controls_Manager::NUMBER,
+				'min'     => 20,
+				'default' => 20,
+			]
+		); 
+		$this->add_control(
+			'date_hide',
+			[
+				'label'          => esc_html__( 'Hide Date', 'magezix-core' ),
+				'type'           => Controls_Manager::SWITCHER,
+				'label_on'       => esc_html__( 'Show', 'magezix-core' ),
+				'label_off'      => esc_html__( 'Hide', 'magezix-core' ),
+				'return_value'   => 'yes',
+				'default'        => 'yes',
+				'style_transfer' => true,
+			]
+		);
+		$this->add_control(
+			'cat_hide',
+			[
+				'label'          => esc_html__( 'Hide Category', 'magezix-core' ),
+				'type'           => Controls_Manager::SWITCHER,
+				'label_on'       => esc_html__( 'Show', 'magezix-core' ),
+				'label_off'      => esc_html__( 'Hide', 'magezix-core' ),
+				'return_value'   => 'yes',
+				'default'        => 'yes',
+				'style_transfer' => true,
+			]
+		);
+		$this->add_control(
+			'thumb_img_height',
+			[
+				'label' => esc_html__( 'Width', 'magezix-core' ),
+				'type' => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'selectors' => [
+					'{{WRAPPER}} .tx-post-overly--lg .post-thumb.mzx-post__item img' => 'height: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+		$this->end_controls_section();
+	}
+
+
+	protected function render() {
+		$settings = $this->get_settings_for_display();		
+
+    ?>
+
+    <div class="widget">
+        <?php if(!empty($settings['topic_heading'])):?>
+        <h2 class="tx-section-heading">
+            <span><?php echo wp_kses( $settings['topic_heading'], true );?></span>
+        </h2>
+        <?php endif;?>
+        <div class="sponsord-content mt-none-15">
+            <?php					
+                $args = array(
+                    'post_type'           => 'post',
+                    'posts_per_page'      => !empty( $settings['pst_per_page'] ) ? $settings['pst_per_page'] : 1,
+                    'post_status'         => 'publish',
+                    'ignore_sticky_posts' => 1,
+                    'order'               => $settings['postorder'],
+                    'orderby'             => $settings['postorderby'],
+                );
+                if( ! empty($settings['post_categories'] ) ){
+                    $args['category_name'] = implode(',', $settings['post_categories']);
+                }
+                if("yes" == $settings['skip_post']){
+                    $args['offset'] = $settings['skip_post_count'];
+                }
+                if(!empty($settings['post_tags'][0])) {
+                    $args['tax_query'] = array(
+                        array(
+                        'taxonomy' => 'post_tag',
+                        'field'    => 'ids',
+                        'terms'    => $settings['post_tags']
+                        )
+                    );
+                }
+                if( isset($settings['post_format']) && is_array($settings['post_format']) && count($settings['post_format']) > 0  ) {
+                    $args['tax_query'] = array(
+                        array(
+                            'taxonomy' => 'post_format',
+                            'field'    => 'slug',
+                            'terms'    => $settings['post_format'],
+                            'operator' => 'IN'
+                        ) 
+                    );
+                } 
+                $query = new \WP_Query( $args );
+                    if ( $query->have_posts() ) {
+                    $iten_number = 0;
+                    while ( $query->have_posts() ) {
+                    $query->the_post();
+                        $mgthumb_size = 'large';
+                        $title = wp_trim_words( get_the_title(), $settings['title_length'], '' );
+                        $iten_number++;
+
+					if(get_post_meta(get_the_ID(), 'magezix_post_sponsor_meta', true)) {
+						$post_sponsor_meta = get_post_meta(get_the_ID(), 'magezix_post_sponsor_meta', true);
+					} else {
+						$post_sponsor_meta = array();
+					}
+					
+					if( array_key_exists( 'sponsor_logo', $post_sponsor_meta )) {
+						$sponsor_logo = $post_sponsor_meta['sponsor_logo'];
+					} else {
+						$sponsor_logo = '';
+					}
+            ?>
+            <div class="tab-post__item tab-post__item--2 tx-post ul_li mt-40">
+                <div class="post-thumb">
+                    <a href="<?php the_permalink();?>"><?php the_post_thumbnail( $mgthumb_size );?></a>
+                    <span class="post-number"><?php if($iten_number < 10){echo esc_attr('0'. $iten_number);}else{echo esc_attr($iten_number);} ;?></span>
+                </div>
+                <div class="post-content">
+                    <?php 
+                        if(function_exists('magezix_category_badge_round')){
+                            magezix_category_badge_round();
+                        }                    
+                    ?>
+                    <h4 class="post-title border-effect-2"><a href="<?php the_permalink();?>"><?php echo esc_html($title);?></a></h4>
+					<?php if(!empty($sponsor_logo['url'])):?>
+                    <div class="sposnord-meta ul_li mt-6">
+                        <span class="sposnord"><?php esc_html_e( 'Sposnord :', 'magezix-core' );?></span>
+                        <img src="<?php echo esc_url($sponsor_logo['url']);?>" alt="<?php echo esc_attr($sponsor_logo['alt']);?>">
+                    </div>
+					<?php endif;?>
+                </div>
+            </div>
+            <?php } wp_reset_query(); } ?>
+        </div>
+    </div>
+    <?php 
+    }
+		
+	
+}
+
+
+Plugin::instance()->widgets_manager->register( new magezix_sponsor_post() );
